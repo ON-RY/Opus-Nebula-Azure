@@ -1,0 +1,235 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "prefix": {
+      "value": "opn"
+    },
+
+    "clientID": {
+      "value": 3
+    },
+
+    "vnetV2addressSpace": {
+      "value": "10.11.9.0/21"
+    },
+
+    "adminVnetVersion": {
+        "value": "New"
+    },
+
+    "nicNamingVersion": {
+        "value": 2
+    },
+
+    "vmRebuild": {
+        "value": "false"
+    },
+
+    "storageAccountType": {
+        "value": "Standard_LRS"
+    },
+
+    "windowsOSVersion": {
+      "value": "2022-Datacenter"
+    },
+
+    "implementationPhase": {
+      "value": 1
+    },
+
+    "asrBuild": {
+      "value": ""
+    },
+
+    "domainAdminUsername": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/c4c7597c-23a2-403c-9f09-40bf5dc3d309/resourceGroups/kvopn0003/providers/Microsoft.KeyVault/vaults/kvopn0003"
+        },
+        "secretName": "DomainAdminUserName"
+      }
+    },
+
+    "domainAdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/c4c7597c-23a2-403c-9f09-40bf5dc3d309/resourceGroups/kvopn0003/providers/Microsoft.KeyVault/vaults/kvopn0003"
+        },
+        "secretName": "DomainAdminPassword"
+      }
+    },
+
+    "localAdminUsername": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/c4c7597c-23a2-403c-9f09-40bf5dc3d309/resourceGroups/kvopn0003/providers/Microsoft.KeyVault/vaults/kvopn0003"
+        },
+        "secretName": "LocalAdminUserName"
+      }
+    },
+
+    "localAdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/c4c7597c-23a2-403c-9f09-40bf5dc3d309/resourceGroups/kvopn0003/providers/Microsoft.KeyVault/vaults/kvopn0003"
+        },
+        "secretName": "LocalAdminPassword"
+      }
+    },
+
+    "environmentName": {
+      "value": "Development"
+    },
+
+    "environmentAcronym": {
+      "value": "D"
+    },
+
+    "environmentShortName": {
+      "value": ""
+    },
+
+    "clientAcronym": {
+      "value": ""
+    },
+
+    "extraEnv1Name": {
+      "value": ""
+    },
+
+    "extraEnv1ShortName": {
+      "value": ""
+    },
+
+    "extraEnv2Name": {
+      "value": ""
+    },
+
+    "extraEnv2ShortName": {
+      "value": ""
+    },
+
+    "publicVpnIps": {
+      "value": "false"
+    },
+
+    "sqlSKU": {
+      "value": "Developer"
+    },
+
+    "sqlVersion": {
+      "value": "SQL2019"
+    },
+
+    "sqlVMSize": {
+      "value": "Standard_DS1_v2"
+    },
+
+    "sqlBYOL": {
+      "value": ""
+    },
+
+    "droneCount": {
+      "value": 4
+    },
+
+    "desktopCount": {
+      "value": 0
+    },
+
+    "dmzServerSubnet": {
+      "value": "web"
+    },
+
+    "webReporter": {
+      "value": "No"
+    },
+
+    "pushPullCount": {
+      "value": 1
+    },
+
+    "webCount": {
+      "value": 1
+    },
+
+    "windowsVMSize": {
+      "value": "Standard_D1_v2"
+    },
+
+    "keyVaultName": {
+      "value": "kvopn0003"
+    },
+
+    "keyVaultResourceGroup": {
+      "value": "kvopn0003"
+    },
+
+    "keyVaultCertificateURL": {
+      "value": "https://kvopn0003.vault.azure.net:443/secrets/aadappcertificate/a130471f23fe4e548b608e8443c63e86"
+    },
+
+    "keyVaultKEKURL": {
+      "value": "https://kvopn0003.vault.azure.net/keys/diskencryptionkek/67a464b8374a4b4b9577891f59776c4d"
+    },
+
+    "aadClientID": {
+      "value": "1df729b8-0393-45a8-9b8d-19e8baa1121b"
+    },
+
+    "aadClientCertThumbprint": {
+      "value": "5BFA84F490977BD8F211E5670B2DE3B08F36D4F8"
+    },
+
+    "sqlKeyVaultName": {
+      "value": "kvopn0003sql"
+    },
+
+    "sqlServicePrincipalName": {
+      "value": ""
+    },
+
+    "sqlServicePrincipalSecret": {
+      "value": ""
+    },
+
+    "sqlCredentialName": {
+      "value": "Azure_EKM_TDE_cred"
+    },
+
+    "sicKey": {
+      "value": "NotRequired"
+    },
+
+    "sequenceVersion": {
+        "value": 1
+    },
+
+    "checkPointOffer": {
+        "value": "check-point-cg-r8020-blink-v2"
+    },
+
+    "insightVMOffer": {
+        "value": "nexpose-scan-engine"
+    },
+
+    "insightVMSize": {
+        "value": "Standard_D1_V2"
+    },
+
+    "dnsParentZone": {
+      "value": ""
+    },
+
+    "dnsChildZone": {
+      "value": ""
+    },
+
+    "certificatesKeyVaultName": {
+      "value": ""
+    }
+
+  }
+}
