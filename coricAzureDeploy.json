@@ -67,10 +67,6 @@
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1",
-                "2012-Datacenter",
-                "2012-R2-Datacenter",
-                "2016-Datacenter",
                 "2019-Datacenter",
                 "Windows-Server-Technical-Preview",
                 "2022-Datacenter"
@@ -207,19 +203,10 @@
         "sqlVersion": {
             "type": "string",
             "allowedValues": [
-                "SQL2012SP2",
-                "SQL2012SP3",
-                "SQL2012SP4",
-                "SQL2014SP1",
-                "SQL2014SP2",
-                "SQL2014SP3",
-                "SQL2016",
-                "SQL2016SP1",
-                "SQL2016SP2",
                 "SQL2017",
                 "SQL2019"
             ],
-            "defaultValue": "SQL2012SP3",
+            "defaultValue": "SQL2019",
             "metadata": {
                 "Description": "Version of SQL Server Enterprise to use.  Use following PowerShell cmdlet to see available options for the deployment region: Get-AzureRmVMImageOffer -PublisherName 'MicrosoftSQLServer"
             }
@@ -227,11 +214,11 @@
         "sqlVMSize": {
             "type": "string",
             "allowedValues": [
-                "Standard_DS1_v2",
+                "Standard_B2ms",
                 "Standard_DS11_v2",
-                "Standard_DS12_v2"
+                "Standard_E8s_v3"
             ],
-            "defaultValue": "Standard_DS11_v2",
+            "defaultValue": "Standard_B2ms",
             "metadata": {
                 "Description": "VM size for SQL Server."
             }
@@ -323,12 +310,12 @@
         "windowsVMSize": {
             "type": "string",
             "allowedValues": [
-                "Standard_D1_v2",
-                "Standard_D2_v2",
-                "Standard_D11_v2",
-                "Standard_D12_v2"
+                "Standard_B2s",
+                "Standard_B2ms",
+                "Standard_E8s_v3",
+                "Standard_DS11_v2"
             ],
-            "defaultValue": "Standard_D1_v2",
+            "defaultValue": "Standard_B2s",
             "metadata": {
                 "Description": "VM size for Windows Servers."
             }
@@ -438,9 +425,9 @@
         "insightVMSize": {
             "type": "string",
             "allowedValues": [
-                "Standard_D1_V2"
+                "Standard_B2s"
             ],
-            "defaultValue": "Standard_D1_V2"
+            "defaultValue": "Standard_B2s"
         },
         "mfaVMOffer": {
             "type": "string",
@@ -468,9 +455,9 @@
                 "simcorpext.net",
                 "opus-nebula.com"
             ],
-            "defaultValue": "simcorpext.net",
+            "defaultValue": "opus-nebula.com",
             "metadata": {
-                "description": "The parent DNS zone name; e.g.: simcorpext.net"
+                "description": "The parent DNS zone name; e.g.: opus-nebula.com"
             }
         },
         "dnsChildZone": {
@@ -556,6 +543,7 @@
                 "sequenceVersion": "[parameters('sequenceVersion')]",
                 "vmEncryptionTemplateLink": "[uri(deployment().properties.templateLink.uri, 'nested/diskEncryption.json')]"
             },
+            "storageAccountType": "[parameters('storageAccountType')]",
             "keyVaultExtForWindowsSettings": {
                 "pollingIntervalInS": "3600",
                 "certificateStoreName": "MY",
@@ -837,16 +825,6 @@
         "octetsArr": "[split(parameters('vnetV2addressSpace'),'.')]",
         "paddedClientID": "[padLeft(parameters('clientID'),4,'0')]",
         "sharedResourcesTemplateURL": "[uri(deployment().properties.templateLink.uri, concat('nested/sharedResources', parameters('implementationPhase'), '.json'))]",
-        "SQL2012SP2": "SQL2012SP2-WS2012R2",
-        "SQL2012SP3": "SQL2012SP3-WS2012R2",
-        "SQL2012SP4": "SQL2012SP4-WS2012R2",
-        "SQL2014SP1": "SQL2014SP1-WS2012R2",
-        "SQL2014SP2": "SQL2014SP2-WS2012R2",
-        "SQL2014SP3": "SQL2014SP3-WS2012R2",
-        "SQL2016": "SQL2016-WS2012R2",
-        "SQL2016SP1": "SQL2016SP1-WS2012R2",
-        "SQL2016SP2": "SQL2016SP2-WS2016",
-        "SQL2017": "SQL2017-WS2019",
         "SQL2019": "SQL2019-WS2019",
         "sqlDeveloperEncryption": "[variables('templateLinkSQLKeyVault')]",
         "sqlDeveloperVM": {
