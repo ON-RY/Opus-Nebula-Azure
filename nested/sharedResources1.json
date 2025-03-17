@@ -51,8 +51,11 @@
                     "name": "[concat(variables('dcBasename'), '01-datadisk-0')]",
                     "diskSizeGB": "[parameters('globals').dataDiskSizes.ftp]",
                     "lun": 0,
-                    "vhd": {
-                        "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('dcBasename'), '01-Data0.vhd')]"
+                    //"vhd": {
+                    //    "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('dcBasename'), '01-Data0.vhd')]"
+                    //},
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('globals').storageAccountType]"
                     },
                     "createOption": "[if(equals(parameters('globals').vmRebuild, 'true'), 'Attach', 'Empty')]"
                 }
@@ -77,8 +80,8 @@
             "ouPath": "",
             "plan": { "name": "none" },
             "publicIPTemplateLink": "[parameters('globals').templateLinkPublicIPNull]",
-            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]",
-            "storageAccount": "[parameters('globals').storageAccountAdmin]"
+            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]"//,
+            //"storageAccount": "[parameters('globals').storageAccountAdmin]"
         },
         "mfaServer": {
             "adminUsername": "[parameters('globals').localAdminUsername]",
@@ -129,8 +132,11 @@
                     "name": "[concat(variables('dcBasename'), '02-datadisk-0')]",
                     "diskSizeGB": "[parameters('globals').dataDiskSizes.dc]",
                     "lun": 0,
-                    "vhd": {
-                        "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('dcBasename'), '02-Data0.vhd')]"
+                    //"vhd": {
+                    //    "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('dcBasename'), '02-Data0.vhd')]"
+                    //},
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('globals').storageAccountType]"
                     },
                     "createOption": "[if(equals(parameters('globals').vmRebuild, 'true'), 'Attach', 'Empty')]"
                 }
@@ -156,8 +162,8 @@
             "plan": { "name": "none" },
             "publicIPTemplateLink": "[parameters('globals').templateLinkPublicIPNull]",
             "sizeOfDataDiskInGB": 1023,
-            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]",
-            "storageAccount": "[parameters('globals').storageAccountAdmin]"
+            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]"//,
+            //"storageAccount": "[parameters('globals').storageAccountAdmin]"
         },
         "mfaBasename": "[concat(parameters('globals').baseName, '-mfa')]",
         "rdsBasename": "[concat(parameters('globals').baseName, '-rdg')]",
@@ -171,8 +177,11 @@
                     "name": "[concat(variables('rdsBasename'), '01-datadisk-0')]",
                     "diskSizeGB": "[parameters('globals').dataDiskSizes.rdg]",
                     "lun": 0,
-                    "vhd": {
-                        "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('rdsBasename'), '01-Data0.vhd')]"
+                    //"vhd": {
+                    //    "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('rdsBasename'), '01-Data0.vhd')]"
+                    //},
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('globals').storageAccountType]"
                     },
                     "createOption": "[if(equals(parameters('globals').vmRebuild, 'true'), 'Attach', 'Empty')]"
                 }
@@ -198,8 +207,8 @@
             "plan": { "name": "none" },
             "publicIPTemplateLink": "[parameters('globals').templateLinkPublicIPNull]",
             "sizeOfDataDiskInGB": 1023,
-            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]",
-            "storageAccount": "[parameters('globals').storageAccountAdmin]"
+            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]"//,
+           // "storageAccount": "[parameters('globals').storageAccountAdmin]"
         },
         "ftpBasename": "[concat(parameters('globals').baseName, '-ftp')]",
         "ftp": {
@@ -212,8 +221,11 @@
                     "name": "[concat(variables('ftpBasename'), '01-datadisk-0')]",
                     "diskSizeGB": "[parameters('globals').dataDiskSizes.ftp]",
                     "lun": 0,
-                    "vhd": {
-                        "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('ftpBasename'), '01-Data0.vhd')]"
+                    //"vhd": {
+                    //    "uri": "[concat('http://', parameters('globals').storageAccountAdmin, '.blob.core.windows.net/', parameters('globals').vhdContainerName, '/', variables('ftpBasename'), '01-Data0.vhd')]"
+                    //},
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('globals').storageAccountType]"
                     },
                     "createOption": "[if(equals(parameters('globals').vmRebuild, 'true'), 'Attach', 'Empty')]"
                 }
@@ -239,8 +251,8 @@
             "plan": { "name": "none" },
             "publicIPTemplateLink": "[parameters('globals').templateLinkPublicIPNull]",
             "sizeOfDataDiskInGB": "[parameters('globals').dataDiskSizes.ftp]",
-            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]",
-            "storageAccount": "[parameters('globals').storageAccountAdmin]"
+            "sqlKeyVaultTemplateLink": "[parameters('globals').templateLinkSQLKeyVaultNull]"//,
+            //"storageAccount": "[parameters('globals').storageAccountAdmin]"
         }
     },
     "resources": [
